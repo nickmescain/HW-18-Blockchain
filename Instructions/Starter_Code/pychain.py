@@ -46,9 +46,9 @@ import hashlib
 # Note that you’ll use this new `Record` class as the data type of your `record` attribute in the next section.
 @dataclass
 class Record:
-    sender: str= "0"
-    receiver: str="0"
-    amount: float=0.0
+    sender: str
+    receiver: str
+    amount: float
 
 
 # @TODO
@@ -175,15 +175,15 @@ pychain = setup()
 
 # @TODO:
 # Add an input area where you can get a value for `sender` from the user.
-sender_info =st.text_input('Sender:')
+sender_info =st.text_input("Sender:")
 
 # @TODO:
 # Add an input area where you can get a value for `receiver` from the user.
-receiver_info =st.text_input('Receiver:')
+receiver_info =st.text_input("Receiver:")
 
 # @TODO:
 # Add an input area where you can get a value for `amount` from the user.
-amount_value =st.text_input('Amount:')
+amount_value =st.text_input("Amount:")
 
 if st.button("Add Block"):
     prev_block = pychain.chain[-1]
@@ -194,7 +194,7 @@ if st.button("Add Block"):
     # which is set equal to a `Record` that contains the `sender`, `receiver`,
     # and `amount` values
     new_block = Block(
-        record=Record,
+        record=Record (sender_info,receiver_info,amount_value),
         creator_id=42,
         prev_hash=prev_block_hash
     )
